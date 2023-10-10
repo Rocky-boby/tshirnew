@@ -41,6 +41,7 @@ function App() {
         path:'/checkout',
         element:<CheckOut/> 
       },
+      
       {
         path:'/login',
         element:<Loginindex value="login"/>

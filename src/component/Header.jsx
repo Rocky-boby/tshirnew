@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom/dist'
 import { getcartTotal } from '../redux/Cartslice'
+import Cookies from 'js-cookie';
+import { useUserData } from '../page/auth/Contextapi';
 
 const Header = () => {
   const {cart,totalQuantity} =useSelector((state)=>state.allcart)
@@ -11,6 +13,7 @@ const Header = () => {
     dispatch(getcartTotal())
 
   },[cart])
+  const { logout,userData } = useUserData();
   return (
     <div>
        {/* ======== top yellow header start ======== */}
@@ -44,12 +47,13 @@ const Header = () => {
           <div className="col-6">
             <div className="login_box" >
               
-                // Use a ternary operator for conditional rendering
-        
-         <a href="#" className="login"> Login </a>
+          
+        {(!userData ? (<>
+          <Link to="/login" className="login"> Login </Link>     
+         <Link to="/register">SIGNUP</Link>
+        </>
+       ):(<Link to='/profile'>{userData.name}</Link>))}
          
-              
-              <a href="#">SIGNUP</a>
             </div>
           </div>
         </div>

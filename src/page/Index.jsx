@@ -8,6 +8,7 @@ import Footer from '../component/Footer'
 const Index = () => {
   return (
     <>
+    
      <Header/>
     <Outlet/>
     <Footer/>

@@ -7,16 +7,19 @@ import { store } from "./app/store";
 import { Provider } from "react-redux";
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { GoogleLogin } from '@leecheuk/react-google-login';
+import { UserDataProvider } from './page/auth/Contextapi';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <UserDataProvider>
     <GoogleOAuthProvider clientId="379456338003-h6hlaoiak4cakflnov0r06cqbn2q2ae8.apps.googleusercontent.com">
-    <Provider store={store}>
-    <App />
-    </Provider>
-      </GoogleOAuthProvider>
- 
- 
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </GoogleOAuthProvider>
+    </UserDataProvider>
+
+
   </React.StrictMode>
 );
 

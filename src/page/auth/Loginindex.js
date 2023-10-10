@@ -1,10 +1,15 @@
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import jwt_decode from "jwt-decode";
 import Login from './Login';
 import Register from './Register';
 import { GoogleLogin, useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom/dist';
+import { useUserData } from './Contextapi';
+
+
+
 const Loginindex = (props) => {
     const [activeTab, setActiveTab] = useState(props.value);
 
@@ -12,25 +17,36 @@ const Loginindex = (props) => {
         setActiveTab(tab);
     };
 
+    const navigate = useNavigate();
+    const { updateUserData,userData } = useUserData();
+
+    useEffect(() => {
+        if (userData) {
+          // Navigate to the profile page with user data
+          navigate('/profile', { userData });
+        }
+      }, [userData, navigate]);
+    const handleGoogleLoginSuccess = async (response) => {
+      try {
+        const res = await axios.get('https://www.googleapis.com/oauth2/v3/userinfo', {
+          headers: {
+            Authorization: `Bearer ${response.access_token}`,
+          },
+        });
+  
+        // Update the userData state with the Google login data
+        updateUserData(res.data);
+        navigate('/profile')
+        console.log(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+  
+    // Set up the Google login
     const login = useGoogleLogin({
-        onSuccess: async (response) => {
-            try {
-                const res = await axios.get('https://www.googleapis.com/oauth2/v3/userinfo',
-                    {
-                        headers: {
-                            Authorization: `Bearer ${response.access_token}`
-                        },
-                    })
-                    console.log(res.data)
-
-            } catch (err) {
-                console.log(err)
-            }
-        },
-        
-    
+      onSuccess: handleGoogleLoginSuccess,
     });
-
     return (
         <section className="login_sec">
             <div className="container">
