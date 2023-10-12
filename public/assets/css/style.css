@@ -1674,4 +1674,56 @@ section.contact_banner {
   top: 29px;
 }
 
-
+/* product search  */
+.product-search {
+  position: absolute;
+  top: 72px;
+  left: 865px;
+  background: #f8eb277d;
+  width: 24.7%;
+  height: auto;
+  border-radius: 3px;
+  padding: 8px;
+}
+input.form-controls {
+  padding: 7px;
+  border-radius: 25px;
+  border: 2px solid #8B8989!important;
+  box-shadow: none !important;
+  background: transparent !important;
+  width: 200px;
+}
+button.btns {
+  position: absolute;
+  right: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+  outline: none;
+  box-shadow: none !important;
+  font-size: 15px;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+.p-list {
+  list-style: none;
+}
+.s-p-image {
+  /* height: 10%; */
+  width: 22%;
+}
+.align-middlescart {
+  padding: 10% 13px 0 0px;
+  font-size: 18px;
+  color: #ffaa00;
+}
+.align-middletext {
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 6px;
+}
+.p-duct {
+  background: white;
+  margin: 7px 0;
+  border-radius: 4px;
+}

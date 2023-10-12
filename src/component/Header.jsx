@@ -1,8 +1,8 @@
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom/dist'
-import { getcartTotal } from '../redux/Cartslice'
+import { Link, useNavigate } from 'react-router-dom/dist'
+import { addtocart, getcartTotal } from '../redux/Cartslice'
 import Cookies from 'js-cookie';
 import { useUserData } from '../page/auth/Contextapi';
 
@@ -13,7 +13,49 @@ const Header = () => {
     dispatch(getcartTotal())
 
   },[cart])
+  const navigate =useNavigate();
   const { logout,userData } = useUserData();
+  const items = useSelector((state) => state.allcart.items);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+
+  const handleSearch = () => {
+    const trimmedSearchTerm = searchTerm.trim();
+  
+    if (trimmedSearchTerm === '') {
+      // If the search term is empty, show all items
+     
+    } else {
+      // Filter items based on the search term
+      const filteredResults = items.filter((item) =>
+        item.title && item.title.toLowerCase().includes(trimmedSearchTerm.toLowerCase())
+      );
+  
+      if (filteredResults.length === 0) {
+        // If no results are found, set searchResults to an empty array
+        setSearchResults([]);
+      } else {
+        // If results are found, update the searchResults state with the filtered items
+        setSearchResults(filteredResults);
+      }
+    }
+  };
+  const searchRef = useRef();
+  useEffect(() => {
+    handleSearch();
+    const handleClickOutside = (event) => {
+      if (searchRef.current && !searchRef.current.contains(event.target)) {
+        setSearchTerm(''); // Clear the search term when clicking outside
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [searchTerm]);
+  console.log(searchResults)
   return (
     <div>
        {/* ======== top yellow header start ======== */}
@@ -121,27 +163,76 @@ const Header = () => {
                   </ul>
                 </li>
               </ul>
-              <div className="search_area">
-                <form action="">
+              <div className="search_area"  >
+                  <div className='search_filed'ref={searchRef}>
                   <input
-                    className="form-control"
-                    type="search"
-                    placeholder="Search"
-                    aria-label="Search"
-                  />
-                  <button className="btn" type="submit">
-                    <i className="fa-solid fa-magnifying-glass" />
-                  </button>
-                </form>
+       className="form-controls"
+      
+        placeholder="Search..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
+      <button className="btns" onClick={handleSearch}> <i className="fa-solid fa-magnifying-glass" /></button>
+         </div>
+                
+    
+    {searchTerm && (
+    <div className='product-search'>
+    {searchResults.length === 0 ? (
+     
+      <p className='text-center p-2 p-duct'>No items found</p>
+
+       
+    ) : (
+      <ul className='p-list' ref={searchRef}>
+        {searchResults.map((item) => (
+          <div className='p-duct'>
+    <li key={item.id}>
+      <div className='row'>
+          <div className=' d-flex justify-content-between p-3'>
+          <img className="s-p-image"src={`/assets/images/products/${item.image}` }  onClick={()=>{navigate(`/product/${item.slug}`)}}></img>
+          <div className='align-middletext'>
+          <p  onClick={()=>{navigate(`/product/${item.slug}`)}}>{item.title}</p>
+          <span onClick={()=>{navigate(`/product/${item.slug}`)}}> ₹{item.price}</span>
+          </div>
+        <div className='align-middlescart'>
+        <i onClick={()=>dispatch(addtocart(item))}  class="fa-solid fa-cart-shopping"></i>
+
+          </div>
+       
+        </div>
+
+      </div>
+      
+      
+      </li>
+          </div>
+      
+        ))}
+      </ul>
+    )}
+  </div>
+)}
+  
+
+      
+    
+  
+    
                 <Link to="/cart" className="cart_btn">
                   <i className="fa-solid fa-cart-shopping" />
                   <span>{totalQuantity}</span>
                 </Link>
               </div>
+              
             </nav>
+       
           </div>
+          
         </div>
+        
       </div>
+    
     </header>
     {/* ======== header end ======== */}
 
