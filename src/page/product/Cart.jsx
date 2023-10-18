@@ -41,6 +41,7 @@ const Cart = () => {
       <div className="container">
         <div className="row">
           <div className="col-lg-7">
+            <div className='table-responsive'>
             <table>
               <tbody>
                 <tr>
@@ -102,6 +103,7 @@ const Cart = () => {
             
               </tbody>
             </table>
+            </div>
           </div>
           {/* <div className="col-lg-6">
             <div className="cupon_code">

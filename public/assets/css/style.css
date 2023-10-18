@@ -22,7 +22,7 @@ ul{
 
 /*====== top yellow sec start ======*/
 .top_yellow_sec {
-    background: #f8eb27;
+    background: #ffaa00;
     padding: 6px 0;
     font-size: 14px;
     line-height: 18px;
@@ -78,8 +78,18 @@ header.header_sec {
 .navbar-light .navbar-brand img {
     width: 250px;
 }
+.navbar-nav .navbar-brand {
+    display: none;
+}
+.menu-close{
+display:none;
+}
+.menu_bar{
+display:none;
+}
 .navbar {
     padding: 0;
+    width: 100%;
 }
 .navbar-light .navbar-nav .nav-link {
     color: #1C1C1C;
@@ -173,7 +183,7 @@ a.cart_btn span {
 
 
 /* ===== banner start ====== */
-section.banner_sec {
+.banner_sec {
   position: relative;
   padding-bottom: 150px;
 }
@@ -300,11 +310,24 @@ a.wishlist {
     color: #17a2b8;
     border-radius: 10px;
 }
+.circule-name {
+  text-align: center;
+  display: block;
+}
+.mobile-bnner {
+  display: none;
+}
+.ceta-banner{
+  display: none;
+}
+.zone-banner{
+  display: none;
+}
 /* ===== banner end ====== */
 
 
 /* ===== contact banner start ======= */
-section.contact_banner {
+.contact_banner {
     margin-top: 100px;
     padding: 44px 0 90px;
     background-image: url(../images/ct.png);
@@ -339,8 +362,14 @@ section.contact_banner {
   color: #000;
   margin-bottom: 40px;
 }
-section.trending_sec {
+.trending_sec {
   padding: 100px 0;
+}
+.heading-mobile {
+  text-transform: uppercase;
+  font-weight: 700;
+  border-bottom: 1px solid #ffaa00;
+  text-align: center;
 }
 .trending_sec .container{
   max-width:96%;
@@ -608,7 +637,7 @@ span.sale_tag {
 .about_content h1 {
     text-transform: uppercase;
     padding-bottom: 2px;
-    border-bottom: 2px solid #f8eb27;
+    border-bottom: 2px solid #ffaa00;
     margin-bottom: 20px;
 }
 .about_content p {
@@ -622,7 +651,7 @@ span.sale_tag {
     flex-direction: column;
 }
 .footer_top {
-    background: #f8eb27;
+    background: #ffaa00;
     padding: 6px 0;
     font-size: 14px;
     line-height: 18px;
@@ -1393,7 +1422,7 @@ a.update_cart {
 a.proceed_btn {
     padding: 15px 0;
     display: inline-block;
-    background: #f8eb27;
+    background: #ffaa00;
     width: 100%;
     text-align: center;
     color: #000;
@@ -1431,7 +1460,7 @@ a.check_login {
 }
 .delivery_form input:focus{
   box-shadow: none;
-  border:1px solid #f8eb27;
+  border:1px solid #ffaa00;
 }
 .check_offer_area {
     padding: 20px;
@@ -1444,14 +1473,14 @@ a.check_login {
 }
 a.Apply_now {
     padding: 10px 20px;
-    background: #f8eb27;
+    background: #ffaa00;
     color: #000;
     font-weight: 500;
     border-radius: .25rem;
 }
 .offer-code input:focus{
   box-shadow: none;
-  border:1px solid #f8eb27;
+  border:1px solid #ffaa00;
 }
 .mrp-text span {
     display: inline-block;
@@ -1489,7 +1518,7 @@ a.Apply_now {
 }
 .checkout-btn {
     padding: 12px;
-    background: #f8eb27;
+    background: #ffaa00;
     margin-top: 10px;
     border: none;
     color: #000;
@@ -1510,7 +1539,7 @@ a.Apply_now {
 }
 .login_btn {
     padding: 13px 20px;
-    border: 1px solid #f8eb27;
+    border: 1px solid #ffaa00;
     border-radius: 0.25rem;
     width: 100%;
     background: transparent;
@@ -1518,7 +1547,7 @@ a.Apply_now {
     text-transform: uppercase;
 }
 .login_btn.active {
-    background: #f8eb27;
+    background: #ffaa00;
 }
 .login_btn_area {
     display: flex;
@@ -1529,7 +1558,7 @@ a.Apply_now {
     display: block;
     padding: 13px 10px;
     border-radius: 0.25rem;
-    background: #f8eb27;
+    background: #ffaa00;
     text-align: center;
     color: #fff;
     text-decoration: none;
@@ -1679,7 +1708,7 @@ section.contact_banner {
   position: absolute;
   top: 72px;
   left: 865px;
-  background: #f8eb277d;
+  background: #ffaa007d;
   width: 24.7%;
   height: auto;
   border-radius: 3px;

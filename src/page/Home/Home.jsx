@@ -25,6 +25,53 @@ export default function Home() {
   const images = ['1.png', '7.png', '6.png', '1.png',/* Add more image URLs as needed */];
   const items = useSelector((state) => state.allcart.items);
   const dispatch =useDispatch();
+
+
+  const mobilebanner = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  };
+  const BIGSAVINGZONE = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 768, // Adjust the breakpoint value as needed
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: false
+        }
+      }
+    ]
+  };
+  const categoryslider = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 768, // Adjust the breakpoint value as needed
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: false
+        }
+      }
+    ]
+  };
+
+
   return (
     <>
     {/* ======= banner start ======== */}
@@ -114,6 +161,96 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <div className="mobilebanner_area">
+
+
+      </div>
+      
+    </section>
+
+
+    <section className='mobile-bnner'>
+    <Slider {...mobilebanner}>
+  <div>
+  <img style={{width:'100%'}}src='https://www.beyoung.in/api/catalog/home-19-8-23/new/Cricket-World-Cup-home-page-banner-mobile-view.jpg'/>
+
+  </div>
+  <div>
+  <img  style={{width:'100%'}}src='https://www.beyoung.in/api/catalog/home-19-8-23/new/combo-banner-mobile-view1.jpg'/>
+
+  </div>
+  </Slider> 
+    </section>
+
+    <section className='ceta-banner'>
+    <div className='container'>
+      <div className='row'>
+        <div className='col-lg-12'>
+        <Slider {...categoryslider}>
+        <div className='ceta-item-slide'><img src="https://www.beyoung.in/api/catalog/home-19-8-23/tshirt.png" alt="" className="img-fluid" /><span class="circule-name">Shirts</span></div>
+        <div className='ceta-item-slide'><img src="https://www.beyoung.in/api/catalog/home-19-8-23/joggers.png" alt="" className="img-fluid"/><span class="circule-name">Shirts</span></div>
+        <div className='ceta-item-slide'><img src="https://www.beyoung.in/api/catalog/home-19-8-23/category-icon1.png" alt="" className="img-fluid"/><span class="circule-name">Shirts</span></div>
+        <div className='ceta-item-slide'><img src="https://www.beyoung.in/api/catalog/home-19-8-23/boxer.png" alt="" className="img-fluid"/><span class="circule-name">Shirts</span></div>
+        <div className='ceta-item-slide'><img src="https://www.beyoung.in/api/catalog/home-19-8-23/joggers.png" alt="" className="img-fluid"/><span class="circule-name">Shirts</span></div>
+      </Slider>
+        </div>
+      </div>
+    </div>
+      </section>
+
+    <section className='zone-banner'>
+      <div className='container'>
+        <div className='row'>
+          <div className='col-lg-12'>
+          <Slider {...BIGSAVINGZONE}>
+  <div>
+  <img style={{width:'100%'}}src='https://www.beyoung.in/api/catalog/home-19-7-23/Pyjama-Pants-home-page-banner-big-saving-mode126.jpg'/>
+
+  </div>
+  <div>
+  <img  style={{width:'100%'}}src='https://www.beyoung.in/api/catalog/homepage-05-06-23/Oversized-tshirt-banner-big-SAVING-ZONE0908.jpg'/>
+
+  </div>
+  <div>
+  <img  style={{width:'100%'}}src='https://www.beyoung.in/api/catalog/home-19-7-23/Travel_collection_big_saving_zone_home_page_banner.jpg'/>
+
+  </div>
+  <div>
+  <img  style={{width:'100%'}}src='https://www.beyoung.in/api/catalog/home-19-8-23/combo-section0209.jpg'/>
+
+  </div>
+  </Slider>
+          </div>
+        </div> 
+      </div>
+    </section>
+
+    <section className='saving-banner'>
+      <div className='container'>
+        <div className='row'>
+          <div className='col-lg-12'>
+          <p class="heading-mobile">big saving zone</p>
+      <Slider {...BIGSAVINGZONE}>
+  <div>
+  <img style={{width:'100%'}}src='https://www.beyoung.in/api/catalog/home-19-7-23/Pyjama-Pants-home-page-banner-big-saving-mode126.jpg'/>
+
+  </div>
+  <div>
+  <img  style={{width:'100%'}}src='https://www.beyoung.in/api/catalog/homepage-05-06-23/Oversized-tshirt-banner-big-SAVING-ZONE0908.jpg'/>
+
+  </div>
+  <div>
+  <img  style={{width:'100%'}}src='https://www.beyoung.in/api/catalog/home-19-7-23/Travel_collection_big_saving_zone_home_page_banner.jpg'/>
+
+  </div>
+  <div>
+  <img  style={{width:'100%'}}src='https://www.beyoung.in/api/catalog/home-19-8-23/combo-section0209.jpg'/>
+
+  </div>
+  </Slider> 
+          </div>
+        </div>
+      </div>
     </section>
     {/* ======= banner end ======== */}
     {/* ====== contact banner start ====== */}
@@ -151,7 +288,7 @@ export default function Home() {
             </div>
           </div>
           {items.slice(0, 6).map((item)=>(
-        <div className="col-lg-4" key={item.id}>
+        <div className="col-6 col-lg-4" key={item.id}>
         <div className="product_main">
           <div className="productlist_img">
             <span className="sale_tag">SALE</span>
@@ -263,7 +400,7 @@ export default function Home() {
       </div>
     </section>
     {/* ====== product list end ======= */}
-    <Sliderst/>
+
    
   </>
   
