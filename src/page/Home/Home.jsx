@@ -32,7 +32,8 @@ export default function Home() {
     infinite: true,
     speed: 500,
     slidesToShow: 1,
-    slidesToScroll: 1
+    slidesToScroll: 1,
+    arrows:false,
   };
   const BIGSAVINGZONE = {
     dots: true,
@@ -40,6 +41,7 @@ export default function Home() {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
+    arrows:false,
     responsive: [
       {
         breakpoint: 768, // Adjust the breakpoint value as needed
@@ -47,7 +49,8 @@ export default function Home() {
           slidesToShow: 1,
           slidesToScroll: 1,
           infinite: true,
-          dots: false
+          dots: false,
+          arrows:false,
         }
       }
     ]
@@ -65,7 +68,8 @@ export default function Home() {
           slidesToShow: 4,
           slidesToScroll: 1,
           infinite: true,
-          dots: false
+          dots: false,
+          arrows:false,
         }
       }
     ]

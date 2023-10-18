@@ -167,3 +167,6 @@ p.copy_right_p {
     text-align: center;
 }
 }
+body{
+    overflow-x: hidden;
+}
