@@ -1,0 +1,172 @@
+@media only screen and (min-width:320px) and (max-width:400px){
+	.top_yellow_sec p {
+    font-size: 12px;
+}
+.track_box a {
+    font-size: 12px;
+}
+.login_box a {
+    font-size: 12px;
+}
+.navbar {
+    justify-content: start;
+    width: 100%;
+}
+.navbar-brand {
+    margin-right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.menu_bar{
+    font-size: 20px;
+    width: 30px;
+    height: 30px;
+    display:block;
+    line-height: 30px;
+    background: #ffaa00;
+    margin-right: 10px;
+}
+.navbar-light .navbar-brand img {
+    width: 150px;
+}
+.navbar-nav {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 0%;
+    height: 100%;
+    background: #fff;
+    z-index: 99999;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+}
+.navopen {
+    width:80%;
+    left:0%;
+    opacity: 1;
+    visibility: visible;
+    transition: 0.3s;
+}
+.menu-close {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    display: block;
+    background: #ffaa00;
+    line-height: 35px;
+    right: 0;
+    top: 0;
+    z-index: 999999;
+    border: solid;
+    border-width: 1px;
+    border-radius: 12px 0px;
+
+}
+.nav-link {
+    padding: 20px !important;
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+}
+.navbar-nav .navbar-brand {
+    display: block;
+    padding-left: 20px;
+}
+.search_area form input {
+    display: none;
+}
+.search_area {
+    gap: 0;
+    margin-right: 10px;
+    margin-left: auto;
+}
+.about_content h1 {
+    font-size: 1.4rem;
+    margin-top: 2rem;
+    text-align: center;
+}
+.about_content p {
+    text-align: center;
+}
+.navbar-nav .dropdown-menu {
+    border: none;
+}
+.dropdown-item {
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+}
+.nav-item {
+    margin-right: 0;
+}
+.nav-item::before {
+    bottom: 0px;
+}
+.banner_sec {
+    display: none;
+}
+.contact_img_area img {
+    display: none;
+}
+.mobile-bnner {
+    display: block;
+}
+.ceta-banner {
+    display: block;
+    padding: 30px 0;
+}
+.zone-banner{
+    display: block;
+    padding:0 0 30px;
+}
+.trd-banner {
+    margin: 0px 0 30px;
+}
+.contact_banner {
+    margin-top: 30px;
+}
+.contact_content h1 {
+    font-size: 30px;
+}
+a.banner_btn {
+    font-size: 16px;
+}
+.trending_sec {
+    padding: 30px 0;
+}
+.view_area {
+    margin-bottom: 30px;
+}
+.product_list_sec {
+    padding: 30px 0 0;
+}
+.social_contact {
+    justify-content: center;
+}
+.footer_area h3 {
+    text-align: center;
+    margin-block: 10px;
+}
+.footer_area p {
+    text-align: center;
+}
+.ct_dets li a {
+    display: block !important;
+    text-align: center;
+}
+.footer_area a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+p.copy_right_p {
+    margin: 30px 0 10px;
+    padding-top: 10px;
+}
+.contact_content {
+    text-align: center;
+}
+}
+body{
+    overflow-x: hidden;
+}
